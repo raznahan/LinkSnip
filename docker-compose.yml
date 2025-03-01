@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongo:27017/urlshortener
+      - PG_CONNECTION=postgres://user:betoche4rfv$RFV@postgres:5432/urlshortener
+      - REDIS_HOST=redis
+    depends_on:
+      - mongo
+      - postgres
+      - redis
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: betoche4rfv$RFV
+      POSTGRES_DB: urlshortener
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
