@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectMongo from './config/mongo.config';
 import urlRoutes from './routes/url.route';
+import redirectRoutes from './routes/redirect.route';
 
 // Load environment variables
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // Add this after other middleware
 app.use('/api/url', urlRoutes);
+app.use('/', redirectRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
