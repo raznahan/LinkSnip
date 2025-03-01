@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsc && node dist/index.js",
-    "test": "npx jest"
+    "clean": "if exist dist rmdir /s /q dist",
+    "build": "npm run clean && tsc",
+    "start": "npm run build && node dist/index.js",
+    "test": "tsc -p tsconfig.test.json && jest",
+    "test-mongo": "npm run build && node dist/test-mongo.js"
   },
   "keywords": [],
   "author": "Moji Raznahan <mraznahan@kitco.com>",
@@ -15,12 +18,14 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jest": "^29.7.0",
+    "mongoose": "^8.11.0",
     "nanoid": "^3.1.23"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
+    "@types/mongoose": "^5.11.97",
     "@types/nanoid": "^3.0.0",
     "@types/node": "^22.13.5",
     "ts-jest": "^29.2.6"

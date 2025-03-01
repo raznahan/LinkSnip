@@ -1,4 +1,4 @@
-import { generateSlug } from '../../src/utils/slugGenerator';
+import { generateSlug } from '../../src/utils/slugGenerator.utils';
 
 describe('generateSlug', () => {
   it('should generate a 7-character string', () => {
