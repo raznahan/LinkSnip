@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import connectMongo from './config/mongo.config';
+import urlRoutes from './routes/url.route';
 
 // Load environment variables
 dotenv.config();
@@ -13,6 +14,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Add this after other middleware
+app.use('/api/url', urlRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
