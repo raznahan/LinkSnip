@@ -12,7 +12,6 @@ export const redirectToLongUrl = catchAsync(async (req: Request, res: Response):
     return;
   }
   
-  // Redirect to frontend 404 page instead of throwing an error
   const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3001';
   res.redirect(`${frontendUrl}/404`);
 });

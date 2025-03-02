@@ -28,13 +28,11 @@ export class AuthService {
   }
 
   async registerUser({ name, email, password }: RegisterUserParams): Promise<UserResponse> {
-    // Check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
       throw new Error('User already exists');
     }
 
-    // Create new user
     const user = await User.create({
       name,
       email,
@@ -52,10 +50,8 @@ export class AuthService {
   }
 
   async loginUser({ email, password }: LoginParams): Promise<UserResponse> {
-    // Find user by email
     const user = await User.findOne({ email }) as IUser & { _id: Types.ObjectId } | null;
 
-    // Check if user exists and password matches
     if (user && (await user.comparePassword(password))) {
       const userId = user._id.toString();
       
