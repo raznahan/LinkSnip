@@ -1,10 +1,10 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, Types } from 'mongoose';
 
 export interface IUrl extends Document {
   slug: string;
   longUrl: string;
   createdAt: Date;
-  userId: mongoose.Types.ObjectId;
+  userId: Types.ObjectId;
 }
 
 const UrlSchema: Schema = new Schema({

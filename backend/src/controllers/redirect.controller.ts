@@ -1,26 +1,18 @@
 import { Request, Response } from 'express';
-import Url from '../models/url.model';
-import redisClient from '../config/redisClient.config';
+import redirectService from '../services/redirect.service';
+import { AppError, catchAsync } from '../utils/errorHandler.utils';
 
-export const redirectToLongUrl = async (req: Request, res: Response) => {
+export const redirectToLongUrl = catchAsync(async (req: Request, res: Response): Promise<void> => {
   const { slug } = req.params;
   
-  // First, check Redis cache
-  const cachedUrl = await redisClient.get(slug);
-  if (cachedUrl) {
-    return res.redirect(cachedUrl);
+  const longUrl = await redirectService.getLongUrl(slug);
+  
+  if (longUrl) {
+    res.redirect(longUrl);
+    return;
   }
-
-  try {
-    const urlDoc = await Url.findOne({ slug });
-    if (urlDoc) {
-      // Cache the result for 1 hour (3600 seconds)
-      await redisClient.set(slug, urlDoc.longUrl, 'EX', 3600);
-      return res.redirect(urlDoc.longUrl);
-    }
-    return res.status(404).json({ error: 'URL not found' });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Internal server error' });
-  }
-};
+  
+  // Redirect to frontend 404 page instead of throwing an error
+  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3001';
+  res.redirect(`${frontendUrl}/404`);
+});

@@ -1,15 +1,14 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import connectMongo from './config/mongo.config';
 import urlRoutes from './routes/url.route';
 import authRoutes from './routes/auth.route';
 import redirectRoutes from './routes/redirect.route';
+import { errorHandler } from './utils/errorHandler.utils';
 
-// Load environment variables
 dotenv.config();
 
-// Create Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -24,14 +23,17 @@ app.use('/', redirectRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('URL Shortener API');
+});
+
+// Error handling middleware
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  errorHandler(err, req, res, next);
 });
 
 // Start server
 const startServer = async () => {
   try {
-    console.log('Starting application...');
-    
     // Connect to MongoDB
     await connectMongo();
     
@@ -41,12 +43,18 @@ const startServer = async () => {
     });
   } catch (error) {
     console.error('Failed to start server:', error);
+    process.exit(1);
   }
 };
 
-// Handle unhandled promise rejections
 process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+  process.exit(1);
 });
 
 // Start the application

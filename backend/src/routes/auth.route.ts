@@ -5,18 +5,12 @@ import { protect } from '../middlewares/auth.middleware';
 const router = Router();
 
 // Register a new user
-router.post('/register', async (req, res) => {
-  await registerUser(req, res);
-});
+router.post('/register', registerUser);
 
 // Login user
-router.post('/login', async (req, res) => {
-  await loginUser(req, res);
-});
+router.post('/login', loginUser);
 
 // Get user profile (protected route)
-router.get('/profile', protect, async (req, res) => {
-  await getUserProfile(req, res);
-});
+router.get('/profile', protect, getUserProfile);
 
-export default router; 
+export default router;

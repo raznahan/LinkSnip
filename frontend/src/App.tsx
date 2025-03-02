@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { store } from './redux/store';
 import LinkShortener from './components/LinkShortener';
 import LinkHistory from './components/LinkHistory';
 import Footer from './components/Footer';
 import Auth from './components/Auth';
 import UserProfile from './components/UserProfile';
+import NotFound from './components/NotFound';
 import { useAppSelector } from './hooks/useRedux';
 import './styles/fixes.css';
 
-// App content component to use Redux hooks
-const AppContent: React.FC = () => {
+// Home page component
+const Home: React.FC = () => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
   const [showAuth, setShowAuth] = useState(false);
 
@@ -68,11 +70,17 @@ const AppContent: React.FC = () => {
   );
 };
 
-// Root App component with Redux Provider
+// Root App component with Redux Provider and Router
 function App() {
   return (
     <Provider store={store}>
-      <AppContent />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
+      </Router>
     </Provider>
   );
 }
