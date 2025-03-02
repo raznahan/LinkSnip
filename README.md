@@ -1,9 +1,8 @@
 # URL Shortener Application
 
-A modern, full-stack URL shortener application that allows users to create shortened URLs and manage their links.
+A shortener application that allows users to create shortened URLs and manage their links.
 
 ![URL Shortener Demo](./assets/demo.png)
-*Screenshot placeholder: Add a main dashboard or homepage screenshot*
 
 ## Features
 
@@ -18,20 +17,13 @@ A modern, full-stack URL shortener application that allows users to create short
 
 ## Screenshots
 
-![URL Creation](./assets/url-creation.png)
-*Screenshot placeholder: Add URL creation form screenshot*
-
 ![Link History](./assets/link-history.png)
-*Screenshot placeholder: Add link history screenshot*
 
 ![User Account](./assets/user-account.png)
-*Screenshot placeholder: Add user account management screenshot*
 
 ![Login Page](./assets/login.png)
-*Screenshot placeholder: Add login page screenshot*
 
 ![Registration Page](./assets/register.png)
-*Screenshot placeholder: Add registration page screenshot*
 
 ## Tech Stack
 
@@ -47,14 +39,14 @@ A modern, full-stack URL shortener application that allows users to create short
 
 - Node.js (v14 or higher)
 - npm or yarn
-- MongoDB (local or Atlas)
+- MongoDB
 - Docker and Docker Compose (optional, for containerized deployment)
 
 ### Installation
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/url-shortener-app.git
+git clone https://github.com/raznahan/LinkSnip.git
 cd url-shortener-app
 ```
 
@@ -142,23 +134,6 @@ npm run build
 
 3. Deploy the built applications to your preferred hosting service
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-
-- [React](https://reactjs.org/)
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Docker](https://www.docker.com/) 
