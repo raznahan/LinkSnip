@@ -1,0 +1,553 @@
+/* Modern UI Enhancements */
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --secondary: #10b981;
+  --secondary-dark: #059669;
+  --accent: #8b5cf6;
+  --dark: #0f172a;
+  --darker: #020617;
+  --dark-blue: #1e293b;
+  --medium: #334155;
+  --light: #f8fafc;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+}
+
+/* Background Blob Animations */
+@keyframes blob {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  33% {
+    transform: scale(1.1) translate(30px, -50px);
+  }
+  66% {
+    transform: scale(0.9) translate(-20px, 20px);
+  }
+  100% {
+    transform: scale(1) translate(0px, 0px);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Grid Pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Remove any large black shapes or unwanted background elements */
+body::before,
+body::after {
+  display: none !important;
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em;
+}
+
+/* Modern Header */
+header {
+  background-color: var(--dark-blue) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  padding: 1rem 0;
+}
+
+header h1 {
+  font-weight: 700 !important;
+  letter-spacing: -0.025em;
+}
+
+/* Modern Card Styling */
+.bg-slate-800, 
+[class*="bg-slate-800"] {
+  background-color: var(--dark-blue) !important;
+  box-shadow: none !important;
+  border-radius: 0.75rem !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bg-slate-700, 
+[class*="bg-slate-700"] {
+  background-color: var(--medium) !important;
+  box-shadow: none !important;
+}
+
+.bg-slate-900, 
+[class*="bg-slate-900"] {
+  background-color: var(--dark) !important;
+  box-shadow: none !important;
+}
+
+/* Background Colors */
+.bg-blue-600 {
+  background-color: var(--primary) !important;
+}
+
+.bg-blue-700 {
+  background-color: var(--primary-dark) !important;
+}
+
+.bg-green-600 {
+  background-color: var(--success) !important;
+}
+
+/* Text Colors */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+.text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+.text-slate-500 {
+  color: #64748b !important;
+}
+
+.text-blue-400 {
+  color: var(--primary-light) !important;
+}
+
+.text-blue-500 {
+  color: var(--primary) !important;
+}
+
+/* Shadows and Borders */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.rounded-lg {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-xl {
+  border-radius: 1rem !important;
+}
+
+.rounded-l-lg {
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+}
+
+.rounded-r-lg {
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+}
+
+/* Border Colors */
+.border-slate-600 {
+  border-color: #475569 !important;
+}
+
+.border-slate-700 {
+  border-color: #334155 !important;
+}
+
+/* Modern Form Elements */
+input[type="url"],
+input[type="text"],
+button {
+  font-size: 14px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+input[type="url"],
+input[type="text"] {
+  background-color: var(--dark-blue) !important;
+  border: 1px solid #334155 !important;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  color: white;
+  box-shadow: none !important;
+}
+
+input[type="url"]:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+}
+
+input[type="url"]::placeholder,
+input[type="text"]::placeholder {
+  color: #64748b;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #475569;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--dark-blue) !important;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 1px;
+}
+
+/* Button Styles */
+button {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"],
+.bg-blue-600 {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+button[type="submit"]:hover,
+.bg-blue-600:hover {
+  background-color: var(--primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+button[type="submit"]:active,
+.bg-blue-600:active {
+  transform: translateY(0);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Copy Button Animation */
+@keyframes copySuccess {
+  0% { background-color: var(--primary); }
+  50% { background-color: var(--success); }
+  100% { background-color: var(--primary); }
+}
+
+button.copy-success {
+  animation: copySuccess 1.5s ease;
+}
+
+/* Layout Fixes */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.items-center {
+  align-items: center !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem !important;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem !important;
+}
+
+.mt-6 {
+  margin-top: 1.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+.p-6 {
+  padding: 1.5rem !important;
+}
+
+.p-8 {
+  padding: 2rem !important;
+}
+
+/* Text Styling */
+.text-center {
+  text-align: center !important;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+}
+
+.text-lg {
+  font-size: 1.125rem !important;
+}
+
+.text-xl {
+  font-size: 1.25rem !important;
+}
+
+.text-2xl {
+  font-size: 1.5rem !important;
+}
+
+.text-3xl {
+  font-size: 1.875rem !important;
+}
+
+.text-4xl {
+  font-size: 2.25rem !important;
+}
+
+/* Modern Footer */
+footer {
+  background-color: var(--dark-blue) !important;
+  border-top: 1px solid var(--medium) !important;
+}
+
+footer a {
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--primary-light) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Result Card Animation */
+.mt-5 {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* History Item Hover */
+.border-gray-200:hover {
+  border-color: var(--primary-light) !important;
+}
+
+/* Responsive Improvements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1, h2, h3 {
+    word-break: break-word;
+  }
+  
+  input[type="url"],
+  input[type="text"],
+  button {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Main Title Styling */
+h1.text-2xl, h1.text-3xl {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em;
+}
+
+/* Fix for oversized icons */
+svg.h-5, svg.w-5 {
+  height: 1.25rem !important;
+  width: 1.25rem !important;
+}
+
+svg.h-4, svg.w-4 {
+  height: 1rem !important;
+  width: 1rem !important;
+}
+
+/* Ensure all icons have appropriate sizing */
+button svg, 
+.flex svg,
+.items-center svg {
+  height: 1.25rem !important;
+  width: 1.25rem !important;
+}
+
+/* Smaller icons for specific contexts */
+button.text-sm svg,
+.text-sm svg {
+  height: 1rem !important;
+  width: 1rem !important;
+}
+
+/* Make sure copy buttons are visible */
+button.absolute {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 0.75rem !important;
+  background: none !important;
+}
+
+/* Remove unwanted shadows */
+.shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+  box-shadow: none !important;
+}
+
+/* Fix for unwanted box with X icon */
+button[type="button"]:not([class*="absolute"]):not([class*="inline-flex"]) {
+  display: none !important;
+}
+
+/* Ensure copy buttons are visible */
+.relative button.absolute {
+  display: flex !important;
+}
+
+/* Remove any background shadows */
+[class*="bg-slate-"] {
+  background-image: none !important;
+}
+
+/* Ensure proper styling for input fields */
+input[readonly] {
+  background-color: var(--dark-blue) !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Fix for the white box with cross */
+.relative + button,
+input + button:not(.absolute):not([class*="rounded-r-lg"]),
+form + button:empty,
+div + button:empty {
+  display: none !important;
+}
+
+/* Fix for any remaining unwanted elements */
+.flex > button:empty,
+.items-center > button:empty,
+button:not([type]):not([class]):empty,
+button:empty {
+  display: none !important;
+}
+
+/* Ensure proper button styling */
+button.rounded-r-lg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Fix for any unwanted shadows or backgrounds */
+[class*="bg-slate-"] {
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Fix for any unwanted elements in the DOM */
+div:empty:not([class]),
+button:empty:not([class]) {
+  display: none !important;
+}
+
+/* Fix for copy icon buttons */
+button[aria-label="Copy to clipboard"] {
+  width: auto !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  padding: 0 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Fix for clear input buttons */
+button[aria-label="Clear input"],
+button[aria-label="Clear custom slug"] {
+  width: auto !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  padding: 0 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+} 

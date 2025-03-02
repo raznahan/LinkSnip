@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import urlReducer from './urlSlice';
 
 export const store = configureStore({
   reducer: {
-    // Add your reducers here
+    url: urlReducer
   }
 });
 
