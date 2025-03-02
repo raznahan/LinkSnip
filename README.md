@@ -2,7 +2,7 @@
 
 A modern, full-stack URL shortener application that allows users to create shortened URLs and manage their links.
 
-![URL Shortener Demo](./screenshots/demo.png)
+![URL Shortener Demo](./assets/demo.png)
 *Screenshot placeholder: Add a main dashboard or homepage screenshot*
 
 ## Features
@@ -18,14 +18,20 @@ A modern, full-stack URL shortener application that allows users to create short
 
 ## Screenshots
 
-![Dashboard](./screenshots/dashboard.png)
-*Screenshot placeholder: Add dashboard screenshot*
-
-![URL Creation](./screenshots/url-creation.png)
+![URL Creation](./assets/url-creation.png)
 *Screenshot placeholder: Add URL creation form screenshot*
 
-![Link History](./screenshots/link-history.png)
+![Link History](./assets/link-history.png)
 *Screenshot placeholder: Add link history screenshot*
+
+![User Account](./assets/user-account.png)
+*Screenshot placeholder: Add user account management screenshot*
+
+![Login Page](./assets/login.png)
+*Screenshot placeholder: Add login page screenshot*
+
+![Registration Page](./assets/register.png)
+*Screenshot placeholder: Add registration page screenshot*
 
 ## Tech Stack
 
